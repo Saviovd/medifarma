@@ -4,7 +4,8 @@ import { MdGroups } from "react-icons/md";
 export default function About() {
   return (
     <div
-      className="w-full md:m-auto max-w-[1400px] rounded-3xl shadow-xl drop-shadow-2xl flex justify-between p-4 md:p-8 pt-10 bg-gray-50 md:mt-20 flex-col gap-5"
+      className="w-full md:m-auto max-w-[1400px] rounded-3xl shadow-xl drop-shadow-2xl flex 
+      justify-between p-4 md:p-8 pt-10 bg-gray-50 md:mt-20 flex-col gap-5 relative"
       id="about"
     >
       <div className="absolute -top-5">
