@@ -11,6 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "dark-blue": "#016789",
+        "light-blue": "#38a5d2",
+        "white-bg": "#e6e6e6"
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to right, #016789, #38a5d2)',
       },
     },
   },
