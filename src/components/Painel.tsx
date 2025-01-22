@@ -26,7 +26,7 @@ export default function   Painel() {
         </div>
       </div>
 
-      <div className="bg-[url('/images/pharmacist-work.jpg')] bg-no-repeat bg-center sm:bg-top bg-cover w-full h-60 md:h-auto md:w-1/2 rounded-3xl mt-5 md:mt-0"></div>
+      <div className="bg-[url('/img/pharmacist-work.jpg')] bg-no-repeat bg-center sm:bg-top bg-cover w-full h-60 md:h-auto md:w-1/2 rounded-3xl mt-5 md:mt-0"></div>
     </div>
   );
 }
