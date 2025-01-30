@@ -70,11 +70,10 @@ const Map: React.FC<MapProps> = ({ apiKey, latitude, longitude, address }) => {
             position={{ lat: latitude, lng: longitude }}
             onCloseClick={() => setIsInfoWindowOpen(false)}
           >
-            <div>
-
-            <Image src={'/LOGO.png'} alt="logo" width={200} height={40} />
-            <div className="text-center py-3 font-semibold">{address}</div>
-            </div>
+            <a href="https://www.google.com.br/maps/@-2.9834958,-60.0543518,21z?entry=ttu&g_ep=EgoyMDI1MDEyMC4wIKXMDSoASAFQAw%3D%3D" className="decoration-transparent">
+              <Image src={"/LOGO.png"} alt="logo" width={200} height={40} />
+              <div className="text-center py-3 font-semibold">{address}</div>
+            </a>
           </InfoWindow>
         )}
       </GoogleMap>

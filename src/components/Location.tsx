@@ -4,9 +4,9 @@ import { ImLocation } from "react-icons/im";
 
 export default function Location() {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-  const latitude = 40.712776;
-  const longitude = -74.005974;
-  const address = "Legenda de teste";
+  const latitude = -2.9834958;
+  const longitude = -60.0543518;
+  const address = "MediFarma - unidade 1";
 
   if (!apiKey) {
     console.error("A chave da API do Google Maps não foi configurada.");
