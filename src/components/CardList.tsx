@@ -9,15 +9,15 @@ type Item = {
 export default function CardList() {
   const list: Item[] = [
     {
-      img: "/img/medicamentos.jpg",
+      img: "/img/medicamentos.png",
       title: "Medicamentos",
     },
     {
-      img: "/img/medicamentos.jpg",
+      img: "/img/higiene-e-beleza.png",
       title: "Higiene e Beleza",
     },
     {
-      img: "/img/medicamentos.jpg",
+      img: "/img/farmacia.png",
       title: "Farmácia",
     },
   ];
