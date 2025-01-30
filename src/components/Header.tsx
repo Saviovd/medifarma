@@ -28,15 +28,6 @@ export default function Header() {
     },
   ];
 
-  const parentVariants = {
-    hidden: { y: -100, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
   const menuVariants = {
     hidden: { opacity: 0, scale: 0.9, y: -20 },
     visible: { opacity: 1, scale: 1, y: 0 },
@@ -46,9 +37,9 @@ export default function Header() {
   return (
     <motion.div
       className="bg-dark-blue backdrop-blur p-4 lg:py-6 lg:px-10 rounded-3xl bg-opacity-65 w-full md:m-auto max-w-[1400px] flex items-center justify-between relative z-10"
-      variants={parentVariants}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
     >
       <Image
         className="object-contain md:w-[140px] lg:w-[160px]"

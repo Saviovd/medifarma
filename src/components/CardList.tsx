@@ -1,3 +1,4 @@
+"use client";
 import VerticalCard from "./VerticalCard";
 
 type Item = {
@@ -18,13 +19,18 @@ export default function CardList() {
     {
       img: "/img/medicamentos.jpg",
       title: "Farmácia",
-    }
+    },
   ];
 
   return (
-    <div className="w-full md:m-auto max-w-[1400px] flex flex-wrap justify-between md:mt-20 gap-6 sm:gap-8 lg:gap-16 ">
+    <div className="w-full md:m-auto max-w-[1400px] flex flex-wrap justify-between md:mt-20 gap-6 sm:gap-8 lg:gap-16">
       {list.map((item, index) => (
-        <VerticalCard key={index} img={item.img} title={item.title} />
+        <VerticalCard
+          key={index}
+          img={item.img}
+          title={item.title}
+          index={index}
+        />
       ))}
     </div>
   );
