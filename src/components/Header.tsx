@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoMenu, IoCloseOutline } from "react-icons/io5";
+import { AnimatePresence, motion } from "framer-motion";
 
 type Route = {
   to: string;
@@ -27,20 +28,41 @@ export default function Header() {
     },
   ];
 
+  const parentVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const menuVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: -20 },
+    visible: { opacity: 1, scale: 1, y: 0 },
+    exit: { opacity: 0, scale: 0.9, y: -10 },
+  };
+
   return (
-    <div className="bg-dark-blue backdrop-blur p-4 lg:py-6 lg:px-10 rounded-3xl bg-opacity-65 w-full md:m-auto max-w-[1400px] flex items-center justify-between relative z-10">
+    <motion.div
+      className="bg-dark-blue backdrop-blur p-4 lg:py-6 lg:px-10 rounded-3xl bg-opacity-65 w-full md:m-auto max-w-[1400px] flex items-center justify-between relative z-10"
+      variants={parentVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <Image
-        className="object-contain md:w-[140px] lg:w-[180px]"
-        src="/POSITIVO.png"
+        className="object-contain md:w-[140px] lg:w-[160px]"
+        src="/POSITIVO.svg"
         alt="MediFarma logo"
         width={100}
         height={38}
+        quality={100}
         priority
       />
       <nav className="hidden md:block">
         <ul className="flex gap-6">
-          {list.map(({ to, title }: Route) => (
-            <li key={title}>
+          {list.map(({ to, title }: Route, index) => (
+            <li key={index}>
               <Link href={to} className="text-white font-normal text-lg">
                 {title}
               </Link>
@@ -56,24 +78,31 @@ export default function Header() {
       >
         {isMenuOpen ? <IoCloseOutline /> : <IoMenu />}
       </button>
-
-      {isMenuOpen && (
-        <div className="absolute top-16 right-6 bg-dark-blue bg-opacity-90 rounded-lg shadow-lg p-4">
-          <ul className="flex flex-col gap-4">
-            {list.map(({ to, title }: Route) => (
-              <li key={title}>
-                <Link
-                  href={to}
-                  className="text-white font-normal text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="absolute top-16 right-2 bg-dark-blue bg-opacity-90 rounded-lg shadow-lg p-4"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={menuVariants}
+          >
+            <ul className="flex flex-col gap-4">
+              {list.map(({ to, title }: Route, index) => (
+                <li key={index}>
+                  <Link
+                    href={to}
+                    className="text-white font-normal text-lg"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

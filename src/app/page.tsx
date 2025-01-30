@@ -1,9 +1,9 @@
-import Painel from "@/components/Painel";
 import About from "@/components/About";
 import CardList from "@/components/CardList";
 import Location from "@/components/Location";
 import Contact from "@/components/Contact";
 import Header from "@/components/Header";
+import Painel from "@/components/Painel";
 
 export default function Home() {
   return (
@@ -11,7 +11,9 @@ export default function Home() {
       <Header />
       <main className="flex flex-col gap-10 md:gap-0 row-start-2 items-start justify-start sm:items-start mt-5 pb-20 lg:pb-48">
         <div className="bg-[url('/img/PATTERN02.svg')] bg-no-repeat bg-bottom bg-cover w-screen h-[490px] absolute top-0 left-0 -z-[1]"></div>
+
         <Painel />
+
         <About />
         <CardList />
         <Location />
